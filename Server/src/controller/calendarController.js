@@ -59,7 +59,7 @@ router.post('/guess', authenticateToken, async (req, res) => {
     guesses.set(key, { x: x, y: y, amount: amount, id: id });
     hasGuessed.set(id, today.toDateString());
     
-    const response = await calendar.update({ _id:_id},{ guesses:guesses, hasGuessed:hasGuessed })
+    const response = await calendar.updateOne({ _id:_id},{ guesses:guesses, hasGuessed:hasGuessed })
     if (response == null || response.modifiedCount == 0) return res.status(401).send("Opslaan van de data is niet gelukt.");
     return res.status(201).json(buildResponseData(guesses));
 })

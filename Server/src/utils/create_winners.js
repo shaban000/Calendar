@@ -20,9 +20,6 @@ const seed_winners = (max) => {
         map.set(key, num);
     }
 
-    // test
-    map.set(`${25},${25}`, 10000);
-
     addwinner(HOOFDPRIJS);
     for (let i = 0; i < 100; i++)  addwinner(TROOSTPRIJS);
     return map;
