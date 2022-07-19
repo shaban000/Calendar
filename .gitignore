@@ -1,0 +1,14 @@
+# vscode
+.vscode/
+
+
+# node
+node_modules/
+
+# Envoirment 
+.env
+
+# extra
+.DS_Store
+*lock.json
+*.rest
