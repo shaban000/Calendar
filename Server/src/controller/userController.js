@@ -44,7 +44,10 @@ router.post('/signup', async (req, res) => {
             email: email,
             password: hashedPassword,
         }).save();
-        return res.status(201).json(user);
+
+        const accessToken = generateAccessToken(user.toJSON());
+        const refreshToken = generateRefreshToken(user.toJSON());
+        return res.status(201).json({ accessToken: accessToken, refreshToken: refreshToken });
     } catch (error) {
         return res.status(400).send(error);
     }

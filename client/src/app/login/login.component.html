@@ -1,0 +1,32 @@
+<div class="content">
+    <mat-tab-group [backgroundColor]="'primary'">
+        <mat-tab label="Login">
+            <div>
+                <label for="login-email" >email: </label>
+                <input type="text" id="login-email" [(ngModel)]="login.email" />
+            </div>
+            <div>
+                <label for="login-password">password: </label>
+                <input type="password" id="login-password" [(ngModel)]="login.password"/>
+            </div>
+            <button type="button" (click)="onLogin()">login</button>
+        </mat-tab>
+        <mat-tab label="Sign up">
+            <div>
+                <label for="signup-name">name: </label>
+                <input type="text" id="signup-name" [(ngModel)]="signup.name"/>
+            </div>
+            <div>
+                <label for="signup-email">email: </label>
+                <input type="text" id="signup-email" [(ngModel)]="signup.email"/>
+            </div>
+            <div>
+                <label for="signup-password">password: </label>
+                <input type="password" id="signup-password" [(ngModel)]="signup.password"/>
+            </div>
+            <button type="button" (click)="onSignup()">signup</button>
+        </mat-tab>
+      </mat-tab-group>
+</div>    
+
+

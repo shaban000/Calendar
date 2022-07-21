@@ -8,6 +8,7 @@ const MAX = 100;
 
 const startNewGame = async () => {
     await Calendar.updateMany({ active: true }, { active: false });
+    
     return await new Calendar({
         winners: create_winners(MAX),
         guesses: new Map(),
@@ -61,7 +62,13 @@ router.post('/guess', authenticateToken, async (req, res) => {
     
     const response = await calendar.updateOne({ _id:_id},{ guesses:guesses, hasGuessed:hasGuessed })
     if (response == null || response.modifiedCount == 0) return res.status(401).send("Opslaan van de data is niet gelukt.");
-    return res.status(201).json(buildResponseData(guesses));
+    
+    const data = buildResponseData(guesses);
+    return res.status(201).json({
+        guesses: data,
+        win: winners.has(key),
+        amount: amount
+    });
 })
 
 module.exports = router;

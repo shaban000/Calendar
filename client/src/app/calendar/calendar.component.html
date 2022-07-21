@@ -1,0 +1,9 @@
+<div class="content">
+    <h2>Verrassingskalender</h2>
+    <p>Klik op een van de vakjes?</p>
+    <div class="grid-container">
+        <div *ngFor='let in of counter() ;let x = index'>
+            <div *ngFor='let in of counter() ;let y = index' class="grid-item {{ checkIfGuessed(x, y) ? 'guessed' : ''}}" (click)="newGuess(x, y)"></div>
+        </div>
+    </div>
+</div>
